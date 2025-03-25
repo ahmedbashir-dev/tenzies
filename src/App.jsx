@@ -7,6 +7,10 @@ export default function App() {
   const [dice, setDice] = useState(generateRandomNumbersArray());
 
 
+  function hold(id){
+    console.log(id);
+  }
+
   function generateRandomNumbersArray(){
     const randomNumbers = Array.from({length:10}, () => ({
       value: Math.floor(Math.random() * 6) + 1,
@@ -17,7 +21,7 @@ export default function App() {
   }
 
   const diceElements = dice.map((die) => {
-    return <Die key={die.id} value={die.value} isHeld={die.isHeld} />
+    return <Die key={die.id} id={die.id} hold={hold} value={die.value} isHeld={die.isHeld} />
   })
 
   function handleClick(){
