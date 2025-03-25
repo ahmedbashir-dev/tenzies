@@ -13,7 +13,8 @@ export default function App() {
   const {
     seconds,
     minutes,
-    restart,
+    reset,
+    pause
   } = useStopwatch({  autoStart: true });
 
   function hold(id){
@@ -44,6 +45,7 @@ export default function App() {
     }
     else{
       setDice(generateRandomNumbersArray());
+      reset();
     }
   }
 
@@ -51,9 +53,8 @@ export default function App() {
 
   useEffect(() => {
     if(gameWon){
-      buttonRef.current
-      .focus();
-      restart();
+      buttonRef.current.focus();
+      pause();
     }
   }, [gameWon]);
   
