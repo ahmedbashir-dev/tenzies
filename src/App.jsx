@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Die } from "./component/Die"
 export default function App() {
   
-  const [diceValues, setDiceValues] = useState(generateRandomNumbersArray());
+  const [dice, setDice] = useState(generateRandomNumbersArray());
 
 
   function generateRandomNumbersArray(){
@@ -10,9 +10,14 @@ export default function App() {
     return randomNumbers
   }
 
-  const diceElements = diceValues.map((value, index) => {
+  const diceElements = dice.map((value, index) => {
     return <Die key={index} value={value} />
   })
+
+  function handleClick(){
+    const newRandomNumbers = generateRandomNumbersArray();
+    setDice(newRandomNumbers);
+  }
 
   
   return (
@@ -22,7 +27,7 @@ export default function App() {
       <div className="dice-container">
         {diceElements}
       </div>
-      <button className="roll-die-button">Roll</button>
+      <button onClick={handleClick} className="roll-die-button">Roll</button>
     </main>
   )
 
