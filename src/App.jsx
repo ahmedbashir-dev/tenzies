@@ -28,10 +28,15 @@ export default function App() {
   })
 
   function rollDice(){
-    const newRandomNumbers = dice.map(die => (
-      die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}
-    ))
-    setDice(newRandomNumbers);
+    if(!gameWon){
+      const newRandomNumbers = dice.map(die => (
+        die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}
+      ))
+      setDice(newRandomNumbers);
+    }
+    else{
+      setDice(generateRandomNumbersArray());
+    }
   }
 
   const gameWon = dice.every(die => die.value === dice[0].value) && dice.every(die => die.isHeld);
