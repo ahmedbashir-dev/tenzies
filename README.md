@@ -1,12 +1,45 @@
-# React + Vite
+# Tenzies
+Tenzies is a fun and engaging dice game built with React and Vite. The objective of the game is to roll the dice until all of them show the same value. Players can click on individual dice to hold their values between rolls.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Roll dice until all dice show the same value
+- Click on dice to hold their values between rolls
+- Timer to track the time taken to win the game
+- Roll count to track the number of rolls taken
+- Confetti animation when the game is won
+- Accessible design with screen reader support
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm (version 6 or higher)
+
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/ahmedbashir-dev/tenzies.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd tenzies
+    ```
+3. Open `index.html` in your web browser to play the game.
+
+## Usage
+
+- Click the "Roll" button to roll the dice.
+- Click on individual dice to hold their value.
+- Continue rolling until all dice show the same number.
+- The game will display the number of rolls and the time taken to win.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+
