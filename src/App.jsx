@@ -8,13 +8,15 @@ export default function App() {
 
 
   function hold(id){
-    console.log(id);
+    setDice(prevDice => (prevDice.map(die => (
+      die.id === id ? {...die, isHeld: !die.isHeld} : die
+    ))))
   }
 
   function generateRandomNumbersArray(){
     const randomNumbers = Array.from({length:10}, () => ({
       value: Math.floor(Math.random() * 6) + 1,
-      isHeld:true,
+      isHeld:false,
       id: nanoid()
     }));
     return randomNumbers
