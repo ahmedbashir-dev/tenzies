@@ -1,5 +1,11 @@
 import { Die } from "./component/Die"
 export default function App() {
+  function generateAllNewDice(){
+    const randomNumbers = Array.from({length:10}, () => Math.floor(Math.random() * 6) + 1);
+    console.log(randomNumbers);
+  }
+
+  generateAllNewDice();
   return (
     <main>
         <h2>Tenzies</h2>
