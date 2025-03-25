@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
+import { useStopwatch } from "react-timer-hook";
 import { Die } from "./component/Die"
 
 export default function App() {
   
   const [dice, setDice] = useState(() => generateRandomNumbersArray());
   const buttonRef = useRef(null);
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 200);
+  const {
+    seconds,
+    minutes,
+    restart,
+  } = useStopwatch({  autoStart: true });
 
   function hold(id){
     setDice(prevDice => (prevDice.map(die => (
@@ -45,6 +53,7 @@ export default function App() {
     if(gameWon){
       buttonRef.current
       .focus();
+      restart();
     }
   }, [gameWon]);
   
@@ -56,6 +65,9 @@ export default function App() {
       </div>
         <h2>Tenzies</h2>
         <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <div className="timer">
+          <span>Time Elapsed:</span> <span className="time">{minutes.toString().padStart(2,0)}:{seconds.toString().padStart(2,0)}</span>
+        </div>
       <div className="dice-container">
         {diceElements}
       </div>
