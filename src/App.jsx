@@ -10,7 +10,7 @@ export default function App() {
   function generateRandomNumbersArray(){
     const randomNumbers = Array.from({length:10}, () => ({
       value: Math.floor(Math.random() * 6) + 1,
-      isHeld:false,
+      isHeld:true,
       id: nanoid()
     }));
     return randomNumbers
