@@ -51,7 +51,7 @@ main > p{
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-row-gap: 20px;
 }
 
 .die{
@@ -60,16 +60,18 @@ main > p{
   display: flex ;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
   background-color: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 
 }
 
 .die > span{
   font-weight: 600;
   font-family: "Inter";
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 
