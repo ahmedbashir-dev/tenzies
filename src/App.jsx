@@ -7,6 +7,8 @@ import { Die } from "./component/Die"
 export default function App() {
   
   const [dice, setDice] = useState(() => generateRandomNumbersArray());
+  const [rollCount, setRollCount] = useState(0);  
+
   const buttonRef = useRef(null);
   const time = new Date();
   time.setSeconds(time.getSeconds() + 200);
@@ -42,10 +44,12 @@ export default function App() {
         die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}
       ))
       setDice(newRandomNumbers);
+      setRollCount(prevRollCount => prevRollCount + 1);
     }
     else{
       setDice(generateRandomNumbersArray());
       reset();
+      setRollCount(0);
     }
   }
 
@@ -66,8 +70,13 @@ export default function App() {
       </div>
         <h2>Tenzies</h2>
         <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-        <div className="timer">
-          <span>Time Elapsed:</span> <span className="time">{minutes.toString().padStart(2,0)}:{seconds.toString().padStart(2,0)}</span>
+        <div className="game-stats-container">
+          <div className="timer">
+            <span>Time Elapsed:</span> <span className="time">{minutes.toString().padStart(2,0)}:{seconds.toString().padStart(2,0)}</span>
+          </div>
+          <div className="roll-count">
+            Roll Count: <span className="count">{rollCount}</span>
+          </div>
         </div>
       <div className="dice-container">
         {diceElements}
