@@ -5,7 +5,7 @@ import { Die } from "./component/Die"
 
 export default function App() {
   
-  const [dice, setDice] = useState(generateRandomNumbersArray());
+  const [dice, setDice] = useState(() => generateRandomNumbersArray());
 
 
   function hold(id){
