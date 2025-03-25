@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { nanoid } from "nanoid";
 import { Die } from "./component/Die"
+
 export default function App() {
   
   const [dice, setDice] = useState(generateRandomNumbersArray());
@@ -8,13 +10,14 @@ export default function App() {
   function generateRandomNumbersArray(){
     const randomNumbers = Array.from({length:10}, () => ({
       value: Math.floor(Math.random() * 6) + 1,
-      isHeld:false
+      isHeld:false,
+      id: nanoid()
     }));
     return randomNumbers
   }
 
-  const diceElements = dice.map((die,index) => {
-    return <Die key={index} value={die.value} isHeld={die.isHeld} />
+  const diceElements = dice.map((die) => {
+    return <Die key={die.id} value={die.value} isHeld={die.isHeld} />
   })
 
   function handleClick(){
