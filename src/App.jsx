@@ -6,12 +6,15 @@ export default function App() {
 
 
   function generateRandomNumbersArray(){
-    const randomNumbers = Array.from({length:10}, () => Math.floor(Math.random() * 6) + 1);
+    const randomNumbers = Array.from({length:10}, () => ({
+      value: Math.floor(Math.random() * 6) + 1,
+      isHeld:false
+    }));
     return randomNumbers
   }
 
-  const diceElements = dice.map((value, index) => {
-    return <Die key={index} value={value} />
+  const diceElements = dice.map((die,index) => {
+    return <Die key={index} value={die.value} isHeld={die.isHeld} />
   })
 
   function handleClick(){
