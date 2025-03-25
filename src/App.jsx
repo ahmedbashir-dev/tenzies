@@ -26,8 +26,10 @@ export default function App() {
     return <Die key={die.id} id={die.id} hold={hold} value={die.value} isHeld={die.isHeld} />
   })
 
-  function handleClick(){
-    const newRandomNumbers = generateRandomNumbersArray();
+  function rollDice(){
+    const newRandomNumbers = dice.map(die => (
+      die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}
+    ))
     setDice(newRandomNumbers);
   }
 
@@ -39,7 +41,7 @@ export default function App() {
       <div className="dice-container">
         {diceElements}
       </div>
-      <button onClick={handleClick} className="roll-die-button">Roll</button>
+      <button onClick={rollDice} className="roll-die-button">Roll</button>
     </main>
   )
 
